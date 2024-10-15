@@ -16,6 +16,7 @@ var alunos2 = alunos.map(function (itemAtual) {
 });
 console.log(alunos2);
 var paulo = alunos2.find(function (item) {
+  //faz a busca de um item em um array:
   return item.nome == 'paulo';
 });
 console.log(paulo);
