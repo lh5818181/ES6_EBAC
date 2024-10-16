@@ -42,3 +42,15 @@ var retornaUmCarro2 = function retornaUmCarro2() {
   };
 };
 console.log(retornaUmCarro2());
+var carro = {
+  velocidadeAtual: 40,
+  acelerar: function acelerar() {
+    this.velocidadeAtual += 10;
+  },
+  frear: function frear() {
+    this.velocidadeAtual -= 10;
+  }
+};
+carro.acelerar();
+carro.frear();
+console.log(carro.velocidadeAtual);
