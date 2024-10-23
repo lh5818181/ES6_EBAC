@@ -14,60 +14,72 @@ function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 // ################################################################## Metodo Rest
+
 function somar() {
-  var soma = 0;
+  // Função para somar todos os argumentos fornecidos
+  var soma = 0; // Inicializa a soma em 0
   for (var i = 0; i < arguments.length; i++) {
-    soma += arguments[i];
+    // Loop através de todos os argumentos fornecidos
+    soma += arguments[i]; // Adiciona cada argumento à soma
   }
-  return soma;
+  return soma; // Retorna a soma total
 }
-console.log(somar(10, 20, 30, 40, 50));
+console.log(somar(10, 20, 30, 40, 50)); // Chama a função somar com argumentos e imprime o resultado
+
 function somarComRest() {
   for (var _len = arguments.length, numeros = new Array(_len), _key = 0; _key < _len; _key++) {
     numeros[_key] = arguments[_key];
   }
+  // Função para somar todos os números fornecidos usando o operador rest
   var soma = numeros.reduce(function (total, numeroAtual) {
-    total += numeroAtual;
-    return total;
-  }, 0);
-  return soma;
+    // Usa reduce para somar todos os números no array
+    total += numeroAtual; // Adiciona o número atual ao total
+    return total; // Retorna o total atualizado
+  }, 0); // Inicializa o total em 0
+  return soma; // Retorna a soma total
 }
-console.log(somarComRest(10, 20, 32));
+console.log(somarComRest(10, 20, 32)); // Chama a função somarComRest com argumentos e imprime o resultado
 
 // ################################################################## Metodo spread
 
-var numeros = [1, 2, 3, 4, 5];
-(_console = console).log.apply(_console, numeros);
-var timesDeFutebolDeSP = ['santos', 'palmeiras', 'bragantino', 'são paulo'];
-var timesDeFutebolDoRio = ['vasco', 'botafogo', 'flamengo', 'fluminense'];
+var numeros = [1, 2, 3, 4, 5]; // Array de números
+(_console = console).log.apply(_console, numeros); // Usa o operador spread para imprimir os números individualmente
 
-// const timesDeFutebol = timesDeFutebolDeSP.concat(timesDeFutebolDoRio);
+var timesDeFutebolDeSP = ['santos', 'palmeiras', 'bragantino', 'são paulo']; // Array de times de futebol de SP
+var timesDeFutebolDoRio = ['vasco', 'botafogo', 'flamengo', 'fluminense']; // Array de times de futebol do Rio
 
-var timesDeFutebol = [].concat(timesDeFutebolDeSP, timesDeFutebolDoRio);
-console.log(timesDeFutebol);
+// const timesDeFutebol = timesDeFutebolDeSP.concat(timesDeFutebolDoRio); // Alternativa: concatena os arrays usando concat
+var timesDeFutebol = [].concat(timesDeFutebolDeSP, timesDeFutebolDoRio); // Usa o operador spread para combinar os arrays
+console.log(timesDeFutebol); // Imprime o array combinado
+
 var carroDaJuli = {
+  // Objeto representando o carro da Juli
   modelo: 'gol',
+  // Modelo do carro
   marca: 'vw',
-  motor: 1.6
+  // Marca do carro
+  motor: 1.6 // Motor do carro
 };
 var carroDoPaulo = _objectSpread(_objectSpread({}, carroDaJuli), {}, {
-  motor: 1.8
+  // Usa o operador spread para copiar as propriedades de carroDaJuli
+  motor: 1.8 // Sobrescreve a propriedade motor
 });
-console.log(carroDaJuli, carroDoPaulo);
+console.log(carroDaJuli, carroDoPaulo); // Imprime os objetos carroDaJuli e carroDoPaulo
 
 // ################################################################## Metodo de desestruturação
 
-// const motorDoCarroDaJuli = carroDaJuli.motor;
-var motorDoCarroDaJuli = carroDaJuli.motor;
-var motorDoCarroDoPaulo = carroDoPaulo.motor;
-console.log(motorDoCarroDoPaulo);
-console.log(motorDoCarroDaJuli);
+// const motorDoCarroDaJuli = carroDaJuli.motor; // Alternativa: acessa a propriedade motor diretamente
+var motorDoCarroDaJuli = carroDaJuli.motor; // Usa a desestruturação para obter a propriedade motor e renomeá-la
+var motorDoCarroDoPaulo = carroDoPaulo.motor; // Usa a desestruturação para obter a propriedade motor e renomeá-la
+console.log(motorDoCarroDoPaulo); // Imprime o valor da propriedade motor do carroDoPaulo
+console.log(motorDoCarroDaJuli); // Imprime o valor da propriedade motor do carroDaJuli
+
 var _timesDeFutebol = _toArray(timesDeFutebol),
   item1 = _timesDeFutebol[0],
   item2 = _timesDeFutebol[1],
   item3 = _timesDeFutebol[2],
-  outrosTimes = _timesDeFutebol.slice(3);
-console.log(item1);
-console.log(item2);
-console.log(item3);
-console.log(outrosTimes);
+  outrosTimes = _timesDeFutebol.slice(3); // Usa a desestruturação para obter os primeiros 3 itens e o resto dos itens
+console.log(item1); // Imprime o primeiro item
+console.log(item2); // Imprime o segundo item
+console.log(item3); // Imprime o terceiro item
+console.log(outrosTimes); // Imprime o restante dos itens no array
